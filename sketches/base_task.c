@@ -46,7 +46,7 @@
  * Returns 1 -> task should exit.
  *         0 -> task should continue.
  */
-int job(void);
+int job(int* count);
 
 /* typically, main() does a couple of things: 
  * 	1) parse command line parameters, etc.
@@ -64,6 +64,8 @@ int job(void);
 int main(int argc, char** argv)
 {
 	int do_exit;
+	int count = 0;
+
 	struct rt_task param;
 
 	/* Setup task parameters */
@@ -134,7 +136,7 @@ int main(int argc, char** argv)
 		/* Wait until the next job is released. */
 		sleep_next_period();
 		/* Invoke job. */
-		do_exit = job();		
+		do_exit = job(&count);		
 	} while (!do_exit);
 
 
@@ -153,11 +155,15 @@ int main(int argc, char** argv)
 }
 
 
-int job(void) 
+int job(int* count) 
 {
 	/* Do real-time calculation. */
-	printf("Test2 test2 test2\n");
-
-	/* Don't exit. */
-	return 0;
+	printf("Test test test\n");
+	if(*count < 5){
+		*count += 1;
+		/* Don't exit. */
+		return 0;
+	}else{
+		return 1;
+	}
 }
