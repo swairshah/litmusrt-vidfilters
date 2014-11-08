@@ -1,8 +1,11 @@
 CC:=gcc
-LDFLAGS:=$(shell pkg-config --libs libavformat libavcodec libswscale libavutil sdl)
+LDFLAGS:=$(shell pkg-config --libs libavformat libavcodec libswscale libavfilter libavutil sdl)
 CFLAGS:=-Wall -ggdb
 
 decode:
 	$(CC) $(CFLAGS) $(LDFLAGS) decode.c
 
-all: decode
+transcode:
+	$(CC) $(CFLAGS) $(LDFLAGS) transcoding.c
+
+all: decode transcode
