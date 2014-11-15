@@ -18,4 +18,8 @@
 *.i*86
 *.x86_64
 *.hex
+<<<<<<< Updated upstream
 .DS_Store
+=======
+sketches/tut01/.DS_Store
+>>>>>>> Stashed changes

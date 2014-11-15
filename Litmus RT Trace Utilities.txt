@@ -1,24 +1,36 @@
 Litmus RT Trace Utilities
 
-Tools are located at litmusrt/liblitmus/ft_tools
-To run st_trace, sudo ./st_trace
-You'll probably want to add the -v option for verbose output.
-Once st_trace is running, execute your program in a different tab. When your program finishes, return to the st_trace tab, press enter to stop tracing. 
-st_trace creates a file for each cpu, st--0.bin, st--1.bin, etc. Since these are binary files, you need a program to parse them. Unit trace is the program used to parse the st_trace .bin files.
-$>unit-trace -o st--0.bin > output.txt
-will output the bin file to a text file.
+Tools are located at litmusrt/liblitmus/ft_tools To run st_trace, sudo
+./st_trace You'll probably want to add the -v option for verbose output. Once
+st_trace is running, execute your program in a different tab. When your program
+finishes, return to the st_trace tab, press enter to stop tracing.  st_trace
+creates a file for each cpu, st--0.bin, st--1.bin, etc. Since these are binary
+files, you need a program to parse them. Unit trace is the program used to parse
+the st_trace .bin files. $>unit-trace -o st--0.bin > output.txt will output the
+bin file to a text file.
 
-$>unit-trace -v st--0.bin
-will show the output visually. I don't think that there's a way to zoom in or out, so if you just use the base_task with print statements, the release and complete times almost overlap.
+$>unit-trace -v st--0.bin will show the output visually. I don't think that
+there's a way to zoom in or out, so if you just use the base_task with print
+statements, the release and complete times almost overlap.
 
-rt_kernelshark
-rt_kernelshark graphically displays the output files of trace-cmd .dat files. To record all system events to trace.dat file, 
-$>sudo trace-cmd record -e all
-run your program
-ctrl-c to stop recording
-$>kernelshark trace.dat
+rt_kernelshark rt_kernelshark graphically displays the output files of trace-cmd
+.dat files. To record all system events to trace.dat file,  $>sudo trace-cmd
+record -e all run your program ctrl-c to stop recording $>kernelshark trace.dat
 
-Since you're recording all system events, this will generate a large file (24.7MB for about 10 seconds of recording). You can limit which events it records by replacing -e all with -e <specific plugin> where the specific plugin options are listed in trace_options.txt. If you run -e litmus, the file size is 1.8MB for about the same period of time.
+Since you're recording all system events, this will generate a large file
+(24.7MB for about 10 seconds of recording). You can limit which events it
+records by replacing -e all with -e <specific plugin> where the specific plugin
+options are listed in trace_options.txt. If you run -e litmus, the file size is
+1.8MB for about the same period of time.
+
+
+Sched Trace Tools https://github.com/brandenburg/sched-trace-tools Use scons to
+install these tools, not make Includes st_show (a better formatted list of
+jobs), st_draw (requires asymptote - also copy the asy files to ~/asy),
+st_job_stats (this shows jobs, response time, deadline misses and tardiness).
+All of these tools operate on the output from st_trace.
+
+
 
 Websites:
 litmus-rt tracing tutorial: https://wiki.litmus-rt.org/litmus/Tracing
