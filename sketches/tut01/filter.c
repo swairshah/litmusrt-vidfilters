@@ -712,8 +712,8 @@ int main(int argc, char *argv[]) {
 
   
   // Read frames and save first five frames to disk
-  i=0;
       while (1) {
+        sleep_next_period();
         if ((ret = av_read_frame(ifmt_ctx, &packet)) < 0)
             break;
         stream_index = packet.stream_index;
