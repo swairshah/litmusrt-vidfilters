@@ -712,7 +712,6 @@ int main(int argc, char *argv[]) {
 
   
   // Read frames and save first five frames to disk
-  i=0;
       while (1) {
         /* Wait until the next job is released. */
         sleep_next_period();
