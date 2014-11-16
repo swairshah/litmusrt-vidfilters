@@ -714,6 +714,9 @@ int main(int argc, char *argv[]) {
   // Read frames and save first five frames to disk
   i=0;
       while (1) {
+        /* Wait until the next job is released. */
+        sleep_next_period();
+        printf("Frame %d\n", i);
         if ((ret = av_read_frame(ifmt_ctx, &packet)) < 0)
             break;
         stream_index = packet.stream_index;
@@ -771,6 +774,7 @@ int main(int argc, char *argv[]) {
                 goto end;
         }
         av_free_packet(&packet);
+        i += 1;
     }
 
     /*****
