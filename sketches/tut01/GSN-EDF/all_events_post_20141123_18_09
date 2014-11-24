@@ -1,0 +1,17 @@
+FeatherTrace Results
+Plug-in = $PLUGIN
+Date = $DTG
+
+CXS_START
+
+CXS_END
+
+SCHED_START
+
+SCHED_END
+
+RELEASE_START
+
+RELEASE_END
+
+RELEASE_LATENCY
