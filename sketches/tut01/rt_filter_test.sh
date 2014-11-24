@@ -59,15 +59,15 @@ wait
 #Combine all FeatherTrace Results
 cd $FT_DIR
 cat $FT_FILE_CPU_0 $FT_FILE_CPU_1 > all_events_$DTG
-./ft2csv CXS_START all_events_$DTG > CXS_START_$DTG
-./ft2csv CXS_END all_events_$DTG > CXS_END_$DTG
-./ft2csv SCHED_START all_events_$DTG > SCHED_START_$DTG
-./ft2csv SCHED_END all_events_$DTG > SCHED_END_$DTG
-./ft2csv SCHED2_START all_events_$DTG > SCHED2_START_$DTG
-./ft2csv SCHED2_END all_events_$DTG > SCHED2_END_$DTG
-./ft2csv RELEASE_START all_events_$DTG > RELEASE_START_$DTG
-./ft2csv RELEASE_END all_events_$DTG > RELEASE_END_$DTG
-./ft2csv RELEASE_LATENCY all_events_$DTG > RELEASE_LATENCY_$DTG
+./ft2csv CXS_START all_events_$DTG > CXS_START_$DTG.csv
+./ft2csv CXS_END all_events_$DTG > CXS_END_$DTG.csv
+./ft2csv SCHED_START all_events_$DTG > SCHED_START_$DTG.csv
+./ft2csv SCHED_END all_events_$DTG > SCHED_END_$DTG.csv
+./ft2csv SCHED2_START all_events_$DTG > SCHED2_START_$DTG.csv
+./ft2csv SCHED2_END all_events_$DTG > SCHED2_END_$DTG.csv
+./ft2csv RELEASE_START all_events_$DTG > RELEASE_START_$DTG.csv
+./ft2csv RELEASE_END all_events_$DTG > RELEASE_END_$DTG.csv
+./ft2csv RELEASE_LATENCY all_events_$DTG > RELEASE_LATENCY_$DTG.csv
 echo 'FeatherTrace Results' >> all_events_post_$DTG 
 echo -e 'Plug-in = $PLUGIN' >> all_events_post_$DTG 
 echo -e 'Date = $DTG' >> all_events_post_$DTG 
@@ -87,20 +87,24 @@ echo -e '\nRELEASE_LATENCY' >> all_events_post_$DTG
 cat RELEASE_LATENCY_$DTG >> all_events_post_$DTG
 
 # Create a Directory and Move the results there
-mkdir $DTG
-mv all_events_post_$DTG $DTG
+NEW_FOLDER=$DTG"_"$PLUGIN
+
+mkdir $NEW_FOLDER
+mv all_events_post_$DTG $NEW_FOLDER
+mv CXS_START_$DTG.csv $NEW_FOLDER
+mv CXS_END_$DTG.csv $NEW_FOLDER
+mv SCHED_START_$DTG.csv $NEW_FOLDER
+mv SCHED_END_$DTG.csv $NEW_FOLDER
+mv SCHED2_START_$DTG.csv $NEW_FOLDER
+mv SCHED2_END_$DTG.csv $NEW_FOLDER
+mv RELEASE_START_$DTG.csv $NEW_FOLDER
+mv RELEASE_END_$DTG.csv $NEW_FOLDER
+mv RELEASE_LATENCY_$DTG.csv $NEW_FOLDER
 
 # Clean up
 rm all_events_$DTG
-rm CXS_START_$DTG
-rm CXS_END_$DTG
-rm SCHED_START_$DTG
-rm SCHED_END_$DTG
-rm SCHED2_START_$DTG
-rm SCHED2_END_$DTG
-rm RELEASE_START_$DTG
-rm RELEASE_END_$DTG
-rm RELEASE_LATENCY_$DTG
+rm $FT_FILE_CPU_0
+rm $FT_FILE_CPU_1
 
 #exit
 #cd $ST_TOOLS_DIR
