@@ -693,14 +693,14 @@ int main(int argc, char *argv[]) {
    */
   CALL( init_litmus() );  // Defined in litmus.h
 
-  /* To specify a partition, do
-   *
-   * param.cpu = CPU;
-   * be_migrate_to(CPU);
-   *
-   * where CPU ranges from 0 to "Number of CPUs" - 1 before calling
-   * set_rt_task_param().
-   */
+  // To specify a partition, do
+   
+    param.cpu = 1;
+    be_migrate_to_cpu(1);
+   
+   // where CPU ranges from 0 to "Number of CPUs" - 1 before calling
+   // set_rt_task_param().
+
   CALL( set_rt_task_param(gettid(), &param) );  // Defined in litmus.h
 
   /*****

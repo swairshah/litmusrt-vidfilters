@@ -594,9 +594,9 @@ int main(int argc, char *argv[]) {
   avfilter_register_all();
 
 
-    if (ret = open_input_file(argv[1]) < 0)
+    if ((ret = open_input_file(argv[1])) < 0)
         goto end;
-    if (ret = open_output_file(argv[2]) < 0)
+    if ((ret = open_output_file(argv[2])) < 0)
         goto end;
     if ((ret = init_filters()) < 0)
         goto end;
@@ -693,14 +693,14 @@ int main(int argc, char *argv[]) {
    */
   CALL( init_litmus() );  // Defined in litmus.h
 
-  /* To specify a partition, do
-   *
-   * param.cpu = CPU;
-   * be_migrate_to(CPU);
-   *
-   * where CPU ranges from 0 to "Number of CPUs" - 1 before calling
-   * set_rt_task_param().
-   */
+  // To specify a partition, do
+   
+    param.cpu = 0;
+    be_migrate_to_cpu(0);
+   
+   // where CPU ranges from 0 to "Number of CPUs" - 1 before calling
+   // set_rt_task_param().
+
   CALL( set_rt_task_param(gettid(), &param) );  // Defined in litmus.h
 
   /*****
