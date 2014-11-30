@@ -43,10 +43,10 @@ typedef struct FilteringContext {
 static FilteringContext *filter_ctx;
 
 
-// These are in milliseconds.
+// These are in milliseconds. 33, 33, 20
 #define PERIOD            33
 #define RELATIVE_DEADLINE 33
-#define EXEC_COST         20
+#define EXEC_COST         10
 
 /* Catch errors.
  */

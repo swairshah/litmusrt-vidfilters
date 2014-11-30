@@ -28,3 +28,17 @@ decode.dSYM
 sketches/tut01/video01.mp4
 sketches/tut01/video02.mp4
 sketches/tut01/video03.mp4
+sketches/tut01/filter
+sketches/tut01/filter_clust_0
+sketches/tut01/filter_clust_1
+sketches/tut01/filter_part_0
+sketches/tut01/filter_part_1
+sketches/tut01/tut01
+video01.mkv
+video02.mkv
+video03.mkv
+video04.mkv
+*.mkv
+decode
+sketches/base_mt_task
+sketches/base_task

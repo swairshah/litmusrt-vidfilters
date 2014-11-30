@@ -43,10 +43,10 @@ typedef struct FilteringContext {
 static FilteringContext *filter_ctx;
 
 
-// These are in milliseconds.
+// These are in milliseconds. 33, 33, 20
 #define PERIOD            33
 #define RELATIVE_DEADLINE 33
-#define EXEC_COST         20
+#define EXEC_COST         10
 
 /* Catch errors.
  */
@@ -594,9 +594,9 @@ int main(int argc, char *argv[]) {
   avfilter_register_all();
 
 
-    if (ret = open_input_file(argv[1]) < 0)
+    if ((ret = open_input_file(argv[1])) < 0)
         goto end;
-    if (ret = open_output_file(argv[2]) < 0)
+    if ((ret = open_output_file(argv[2])) < 0)
         goto end;
     if ((ret = init_filters()) < 0)
         goto end;
