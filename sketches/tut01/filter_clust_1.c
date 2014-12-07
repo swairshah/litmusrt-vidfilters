@@ -46,7 +46,7 @@ static FilteringContext *filter_ctx;
 // These are in milliseconds.
 #define PERIOD            33
 #define RELATIVE_DEADLINE 33
-#define EXEC_COST         20
+#define EXEC_COST         10
 
 /* Catch errors.
  */

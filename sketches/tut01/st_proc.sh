@@ -2,7 +2,7 @@
 
 # Set Directory Variables
 ST_DIR=/home/rts/litmus-rt/liblitmus/ft_tools
-FILTER_DIR=/mnt/hgfs/debian_share/rts_project/litmusrt-vidfilters/sketches/tut01
+FILTER_DIR=/home/rts/proj/tut01
 ST_TOOLS_DIR=/home/rts/litmus-rt/sched-trace-tools-master
 LIBLITMUS_DIR=/home/rts/litmus-rt/liblitmus
 
